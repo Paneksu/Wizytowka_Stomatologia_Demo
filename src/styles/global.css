@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #F8F5F0;
+  --color-cream-dark: #EDE9E1;
+  --color-ink: #1A1917;
+  --color-ink-muted: #6A6560;
+  --color-gold: #B89A6E;
+  --color-border: #E4DDD5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

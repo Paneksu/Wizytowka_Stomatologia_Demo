@@ -1,0 +1,398 @@
+---
+const services = [
+  {
+    id: 'profilaktyka',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+    title: 'Profilaktyka i higiena',
+    body: 'Wizyta higienizacyjna, scaling, piaskowanie EMS, fluoryzacja, lakierowanie. Dbamy o Twoje zęby zanim zacznie boleć.',
+    price: 'od 200 zł',
+    priceGroups: [
+      {
+        label: 'Ogólne',
+        items: [
+          { name: 'Konsultacja stomatologiczna',      price: '200 zł' },
+          { name: 'Wizyta higienizacyjna',             price: '200 zł' },
+          { name: 'Wizyta kontrolna',                  price: 'bezpłatna' },
+          { name: 'Znieczulenie miejscowe',            price: '50 zł' },
+          { name: 'Znieczulenie miejscowe WAND',       price: '80 zł' },
+        ],
+      },
+      {
+        label: 'Higienizacja',
+        items: [
+          { name: 'Scaling (usunięcie kamienia)',         price: '250–350 zł' },
+          { name: 'Piaskowanie',                          price: '250 zł' },
+          { name: 'Scaling + piaskowanie EMS',            price: '350–450 zł' },
+          { name: 'Scaling + piaskowanie + fluoryzacja',  price: '350–500 zł' },
+          { name: 'Lakierowanie / fluoryzacja',           price: '200 zł' },
+          { name: 'Leczenie nadwrażliwości (1 ząb)',      price: '100 zł' },
+        ],
+      },
+      {
+        label: 'Radiologia',
+        items: [
+          { name: 'RTG pojedynczego zęba',              price: '50 zł' },
+          { name: 'Zdjęcie pantomograficzne',           price: '100 zł' },
+          { name: 'Zdjęcie tele-boczne orto',           price: '100 zł' },
+          { name: 'Komplet zdjęć (panto + tele)',       price: '200 zł' },
+          { name: 'Tomografia CBCT (1 łuk)',            price: '250 zł' },
+          { name: 'Tomografia CBCT (szczęki + żuchwa)', price: '300 zł' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'zachowawcza',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+    title: 'Stomatologia zachowawcza',
+    body: 'Leczenie próchnicy, wypełnienia kompozytowe, odbudowa zębów. Leczenie endodontyczne kanałowe pod mikroskopem.',
+    price: 'od 300 zł',
+    priceGroups: [
+      {
+        label: 'Zachowawcza',
+        items: [
+          { name: 'Kiretaż zamknięty 1/2 łuku',               price: '600 zł' },
+          { name: 'Leczenie zęba stałego (wypełnienie)',        price: '300–400 zł' },
+          { name: 'Odbudowa / licowanie zęba kompozytem',       price: '500–600 zł' },
+          { name: 'Opatrunek biologiczny (tlenek cynku)',        price: '200 zł' },
+        ],
+      },
+      {
+        label: 'Endodoncja (leczenie kanałowe)',
+        items: [
+          { name: 'Dewitalizacja zęba',                         price: '200 zł' },
+          { name: 'Leczenie kanałowe — ząb 1-kanałowy',         price: '500 zł' },
+          { name: 'Leczenie kanałowe — ząb wielokanałowy (kanał)', price: '300–400 zł' },
+          { name: 'Opracowanie w mikroskopie',                   price: '100 zł' },
+          { name: 'Usunięcie złamanego narzędzia z kanału',      price: '100–300 zł' },
+          { name: 'Usunięcie wkładu koronowo-korzeniowego',      price: '250 zł' },
+          { name: 'Zamknięcie perforacji materiałem MTA',        price: '300 zł' },
+          { name: 'Założenie lekarstwa do kanału',               price: '150 zł' },
+          { name: 'Powtórne leczenie kanałowe',                  price: '–40%' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'dziecieca',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    title: 'Stomatologia dziecięca',
+    body: 'Wizyty adaptacyjne, impregnacja i lakowanie zębów mlecznych, leczenie próchnicy u dzieci. Przyjazna atmosfera bez stresu.',
+    price: 'od 20 zł',
+    priceGroups: [
+      {
+        label: 'Stomatologia dziecięca',
+        items: [
+          { name: 'Wizyta adaptacyjna dziecka + porada',                         price: '20 zł' },
+          { name: 'Impregnacja zębów mlecznych',                                 price: '200–250 zł' },
+          { name: 'Lakowanie zęba (piaskowanie + kompozyt)',                      price: '200 zł' },
+          { name: 'Leczenie zęba mlecznego (wypełnienie)',                        price: '250 zł' },
+          { name: 'Leczenie zęba mlecznego (amputacja miazgi + wypełnienie)',     price: '350 zł' },
+          { name: 'Ekstrakcja zęba mlecznego',                                    price: '150 zł' },
+          { name: 'Ekstrakcja zęba mlecznego ze znieczuleniem WAND',              price: '260 zł' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'chirurgia',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>`,
+    title: 'Chirurgia stomatologiczna',
+    body: 'Ekstrakcje niepowikłane i chirurgiczne, usuwanie zębów mądrości, resekcje, podcięcia wędzidełka, nacięcia ropni.',
+    price: 'od 250 zł',
+    priceGroups: [
+      {
+        label: 'Ekstrakcje',
+        items: [
+          { name: 'Ekstrakcja zęba (niepowikłana)',             price: '250–350 zł' },
+          { name: 'Ekstrakcja chirurgiczna (separacja)',         price: '400–600 zł' },
+          { name: 'Operacyjne usunięcie ósemki',                price: '600–1000 zł' },
+        ],
+      },
+      {
+        label: 'Zabiegi chirurgiczne',
+        items: [
+          { name: 'Hemisekcja / radektomia',                    price: '500 zł' },
+          { name: 'Szycie chirurgiczne',                        price: '150–300 zł' },
+          { name: 'Opatrunek chirurgiczny Resopac CGF',         price: '200 zł' },
+          { name: 'Wydłużenie korony klinicznej',               price: '500–600 zł' },
+          { name: 'Resekcja wierzchołka (1-korzeniowy)',        price: '1000–1200 zł' },
+          { name: 'Resekcja wierzchołka (wielokorzeniowy)',     price: '1000–1200 zł' },
+          { name: 'Plastyka połączenia ustno-zatokowego',       price: '500 zł' },
+          { name: 'Nacięcie ropnia',                            price: '300 zł' },
+          { name: 'Podcięcie wędzidełka',                       price: '500–600 zł' },
+          { name: 'Założenie szyny kompozytowej (za ząb)',      price: '100 zł' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'implanty',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0020 0h-3"/></svg>`,
+    title: 'Implantologia',
+    body: 'Implanty tytanowe i miniimplanty, zabiegi augmentacyjne, podniesienie dna zatoki. Trwałe i estetyczne uzupełnienia.',
+    price: 'od 1 700 zł',
+    priceGroups: [
+      {
+        label: 'Implanty',
+        items: [
+          { name: 'Implant tytanowy',                            price: '3000–3500 zł' },
+          { name: 'Miniimplant',                                 price: '1700 zł' },
+          { name: 'Korona / most na implancie',                  price: 'wycena indywidualna' },
+          { name: 'II etap — śruba gojąca',                     price: '200–400 zł' },
+          { name: 'II etap — śruba gojąca z zabiegiem tkanek',  price: '200–600 zł' },
+        ],
+      },
+      {
+        label: 'Zabiegi uzupełniające',
+        items: [
+          { name: 'Zabiegi augmentacyjne kości',   price: 'wycena indywidualna' },
+          { name: 'Podniesienie dna zatoki',        price: 'wycena indywidualna' },
+          { name: 'Przeszczep tkanek miękkich',     price: 'wycena indywidualna' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'protetyka',
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>`,
+    title: 'Protetyka i ortodoncja',
+    body: 'Korony, mosty, licówki E-Max i Cerkon, protezy szkieletowe. Aparaty stałe, ruchome, Invisalign, retainery.',
+    price: 'od 950 zł',
+    priceGroups: [
+      {
+        label: 'Korony i mosty',
+        items: [
+          { name: 'Korona metalowa lana',                  price: '900 zł' },
+          { name: 'Korona metalowa Cr-Co (licowana porcelaną)', price: '1400 zł' },
+          { name: 'Korona Cr-Co CAD CAM',                  price: '1400 zł' },
+          { name: 'Korona pełnoceramiczna E-Max',          price: '1900 zł' },
+          { name: 'Korona pełnokonturowa CERCON',          price: '1900 zł' },
+          { name: 'Licówka pełnoceramiczna',               price: '1900 zł' },
+          { name: 'Wkład ceramiczny (inlay/onlay)',        price: '1900 zł' },
+          { name: 'Wkład kompozytowy (inlay/onlay)',       price: '1200 zł' },
+          { name: 'Korona teleskopowa na cerkonie',        price: '2800 zł' },
+        ],
+      },
+      {
+        label: 'Protezy',
+        items: [
+          { name: 'Proteza szkieletowa',             price: 'od 2300 zł' },
+          { name: 'Proteza poliamidowa Vertex',      price: 'od 2300 zł' },
+          { name: 'Proteza całkowita (zęby Wiedent)', price: '1700 zł' },
+          { name: 'Proteza całkowita (zęby VITA)',   price: '2200 zł' },
+          { name: 'Wybielanie zębów (2 łuki)',       price: '1200 zł' },
+          { name: 'Szyna relaksacyjna Michigan',     price: '900 zł' },
+        ],
+      },
+      {
+        label: 'Ortodoncja',
+        items: [
+          { name: 'Konsultacja ortodontyczna',        price: '200–300 zł' },
+          { name: 'Aparaty ruchome',                  price: 'od 950 zł' },
+          { name: 'Aparat stały metalowy',            price: '2600 zł' },
+          { name: 'Aparat stały kryształowy',         price: '3500 zł' },
+          { name: 'Aparat stały bezniklowy',          price: '3300 zł' },
+          { name: 'Aparat Invisalign',                price: 'od 18 000 zł' },
+          { name: 'Aparat retencyjny',                price: '400 zł' },
+          { name: 'Wizyta kontrolna aparatu stałego', price: '100 zł' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<section id="uslugi" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+      <div class="max-w-xl">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4">Nasze usługi</p>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
+          Kompleksowa opieka<br /><em class="italic font-normal">pod jednym dachem</em>
+        </h2>
+      </div>
+      <a
+        href="#kontakt"
+        class="hidden lg:inline-flex items-center gap-2 text-sm font-medium text-ink border border-border rounded-full px-6 py-3 hover:bg-cream-dark transition-colors duration-200"
+      >
+        Umów konsultację
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="relative" id="services-container">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden">
+        {services.map(s => (
+          <div class="service-card bg-cream p-6 sm:p-8 lg:p-10 flex flex-col gap-5 transition-colors duration-300 group" data-card-id={s.id}>
+            <div class="text-gold" set:html={s.icon} />
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-ink mb-2">{s.title}</h3>
+              <p class="text-sm text-ink-muted leading-relaxed">{s.body}</p>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-border">
+              <span class="text-xs font-semibold text-gold">{s.price}</span>
+              <button
+                class="show-prices-btn text-xs font-medium text-ink-muted hover:text-ink flex items-center gap-1.5 transition-colors duration-200 cursor-pointer"
+                data-service-id={s.id}
+                aria-label={`Zobacz ceny — ${s.title}`}
+              >
+                Zobacz ceny
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {services.map(s => (
+        <div
+          class="price-panel absolute bg-cream rounded-2xl z-20 overflow-hidden"
+          data-panel-id={s.id}
+          style="display:none; top:0; left:0; right:0; bottom:0;"
+        >
+          <div class="h-full overflow-y-auto p-6 lg:p-8">
+            <div class="flex items-start justify-between gap-4 mb-5">
+              <div>
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-1">Cennik</p>
+                <h3 class="text-2xl font-semibold text-ink">{s.title}</h3>
+              </div>
+              <button
+                class="close-prices-btn flex-shrink-0 w-9 h-9 rounded-full bg-ink/8 hover:bg-ink/15 transition-colors duration-200 flex items-center justify-center text-ink"
+                aria-label="Zamknij cennik"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5">
+              {s.priceGroups.map(group => (
+                <div>
+                  <p class="text-xs font-semibold tracking-[0.15em] uppercase text-ink-muted mb-2">{group.label}</p>
+                  <div class="flex flex-col divide-y divide-border">
+                    {group.items.map(item => (
+                      <div class="flex items-baseline justify-between gap-3 py-1.5">
+                        <span class="text-xs text-ink leading-snug">{item.name}</span>
+                        <span class="text-xs font-semibold text-gold whitespace-nowrap flex-shrink-0">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-border flex items-center justify-between gap-4">
+              <p class="text-xs text-ink-muted">Ceny mają charakter orientacyjny. Ostateczna wycena na podstawie badania.</p>
+              <a href="#kontakt" class="flex-shrink-0 bg-ink text-cream text-xs font-medium px-5 py-2.5 rounded-full hover:bg-ink/80 transition-colors duration-200">
+                Umów wizytę
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const container = document.getElementById('services-container')!;
+  const EASING = 'cubic-bezier(0.4, 0, 0.2, 1)';
+  const NAV_H = 64;
+
+  const isMobile = () => window.innerWidth < 768;
+
+  function openPanel(id: string) {
+    const card = container.querySelector<HTMLElement>(`[data-card-id="${id}"]`)!;
+    const panel = container.querySelector<HTMLElement>(`[data-panel-id="${id}"]`)!;
+
+    if (isMobile()) {
+      Object.assign(panel.style, {
+        position: 'fixed',
+        top: NAV_H + 'px',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        borderRadius: '0',
+        zIndex: '40',
+        display: 'block',
+        opacity: '0',
+        overflow: 'hidden',
+        transition: 'opacity .2s ease',
+      });
+      panel.offsetHeight;
+      panel.style.opacity = '1';
+      document.body.style.overflow = 'hidden';
+    } else {
+      const cRect = container.getBoundingClientRect();
+      const kRect = card.getBoundingClientRect();
+      const t = kRect.top    - cRect.top;
+      const l = kRect.left   - cRect.left;
+      const r = cRect.right  - kRect.right;
+      const b = cRect.bottom - kRect.bottom;
+
+      Object.assign(panel.style, {
+        position: 'absolute',
+        borderRadius: '',
+        display: 'block',
+        transition: 'none',
+        top: t + 'px', left: l + 'px', right: r + 'px', bottom: b + 'px',
+        opacity: '0',
+        overflow: 'hidden',
+      });
+      panel.dataset.closeTop    = String(t);
+      panel.dataset.closeLeft   = String(l);
+      panel.dataset.closeRight  = String(r);
+      panel.dataset.closeBottom = String(b);
+
+      panel.offsetHeight;
+
+      Object.assign(panel.style, {
+        transition: `top .4s ${EASING}, left .4s ${EASING}, right .4s ${EASING}, bottom .4s ${EASING}, opacity .3s ease`,
+        top: '0', left: '0', right: '0', bottom: '0',
+        opacity: '1',
+      });
+
+      // scroll services section into view (account for fixed nav)
+      const sectionTop = container.getBoundingClientRect().top + window.scrollY - NAV_H - 16;
+      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+    }
+  }
+
+  function closePanel(panel: HTMLElement) {
+    if (isMobile()) {
+      Object.assign(panel.style, {
+        transition: 'opacity .2s ease',
+        opacity: '0',
+      });
+      panel.addEventListener('transitionend', () => {
+        panel.style.display = 'none';
+        panel.style.position = 'absolute';
+        panel.style.borderRadius = '';
+        document.body.style.overflow = '';
+      }, { once: true });
+    } else {
+      const t = panel.dataset.closeTop    ?? '0';
+      const l = panel.dataset.closeLeft   ?? '0';
+      const r = panel.dataset.closeRight  ?? '0';
+      const b = panel.dataset.closeBottom ?? '0';
+
+      Object.assign(panel.style, {
+        transition: `top .35s ${EASING}, left .35s ${EASING}, right .35s ${EASING}, bottom .35s ${EASING}, opacity .25s ease`,
+        top: t + 'px', left: l + 'px', right: r + 'px', bottom: b + 'px',
+        opacity: '0',
+        overflow: 'hidden',
+      });
+      panel.addEventListener('transitionend', () => {
+        panel.style.display = 'none';
+      }, { once: true });
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('.show-prices-btn').forEach(btn => {
+    btn.addEventListener('click', () => openPanel(btn.dataset.serviceId!));
+  });
+
+  document.querySelectorAll<HTMLElement>('.close-prices-btn').forEach(btn => {
+    btn.addEventListener('click', () => closePanel(btn.closest<HTMLElement>('.price-panel')!));
+  });
+</script>

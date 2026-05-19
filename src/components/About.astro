@@ -1,0 +1,66 @@
+---
+const stats = [
+  { value: '4', label: 'lekarzy stomatologów' },
+  { value: '8', label: 'osób w zespole' },
+  { value: '5 dni', label: 'w tygodniu, pon–pt' },
+];
+---
+
+<section id="o-nas" class="py-20 lg:py-28 bg-cream-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[520px]">
+      <img
+        src="https://gabinetwpasazu.pl/wp-content/uploads/2018/03/zespol.jpg"
+        alt="Zespół Gabinetu Stomatologicznego w Pasażu 24H"
+        class="w-full h-full object-cover object-top"
+        loading="lazy"
+      />
+      <div class="absolute bottom-6 left-6 right-6">
+        <div class="bg-ink/85 backdrop-blur-sm rounded-xl px-5 py-4 text-cream">
+          <p class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-1">Lokalizacja</p>
+          <p class="text-sm font-medium">ul. Harcerska 2A, 44-335 Jastrzębie-Zdrój</p>
+          <p class="text-xs text-cream/70 mt-0.5">Pasaż 24H · parking przy wejściu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-8">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-5">O naszym gabinecie</p>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold text-ink leading-[1.1] mb-6">
+          Gabinet, który<br /><em class="italic font-normal">dba o Ciebie</em>
+        </h2>
+        <div class="space-y-4 text-ink-muted text-sm leading-relaxed">
+          <p>
+            Gabinet Stomatologiczny w Pasażu 24H w Jastrzębiu-Zdroju to miejsce,
+            gdzie pasja spotyka się z profesjonalizmem. Nasz doświadczony zespół
+            czterech lekarzy dentystów i higienistek zapewnia kompleksową opiekę
+            stomatologiczną dla całej rodziny.
+          </p>
+          <p>
+            Oferujemy pełen zakres usług — od profilaktyki, przez stomatologię
+            zachowawczą i dziecięcą, endodoncję, chirurgię, aż po implanty,
+            protetykę i ortodoncję. Pracujemy w oparciu o najnowocześniejszy sprzęt,
+            w tym mikroskop stomatologiczny i tomografię stożkową CBCT.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 pt-2 border-t border-border">
+        {stats.map(s => (
+          <div>
+            <p class="font-display text-3xl lg:text-4xl font-semibold text-ink mb-1">{s.value}</p>
+            <p class="text-xs text-ink-muted leading-snug">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <a
+        href="#zespol"
+        class="self-start bg-ink text-cream text-sm font-medium px-8 py-4 rounded-full hover:bg-ink/80 transition-colors duration-200"
+      >
+        Poznaj nasz zespół
+      </a>
+    </div>
+  </div>
+</section>

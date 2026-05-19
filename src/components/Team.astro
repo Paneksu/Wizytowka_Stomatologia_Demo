@@ -1,0 +1,210 @@
+---
+const doctors = [
+  {
+    name: 'lek. dent. Małgorzata Wnorowska-Siemieniec',
+    role: 'Lekarz Stomatolog',
+    base: 'Ukończyła Akademię Medyczną we Wrocławiu. Stomatologia była i wciąż jest jej pasją.',
+    extra: ' Zajmuje się kompleksowym leczeniem, planowaniem leczenia i leczeniem pacjentów z różnymi problemami stomatologicznymi. Największym wyzwaniem pozostaje protetyka z jej estetycznym aspektem. Stale podnosi swoje kwalifikacje na licznych kursach i kongresach.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/gosia.jpg',
+    pos: '22% top',
+  },
+  {
+    name: 'lek. dent. Grzegorz Siemieniec',
+    role: 'Lekarz Stomatolog',
+    base: 'Nieustająco rozwija swoje umiejętności i kwalifikacje zawodowe uczestnicząc w licznych kursach i kongresach z zakresu implantologii, protetyki, endodoncji.',
+    extra: ' Stomatologia to jedna z jego pasji. W życiu prywatnym jest szczęśliwym ojcem, pasjonuje się sportem — uprawia wspinaczkę sportową i wysokogórską, biegi na nartach oraz gra w tenisa.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/grzegorz.jpg',
+    pos: '78% top',
+  },
+  {
+    name: 'lek. dent. Bogna Cieślik-Szladewska',
+    role: 'Lekarz Stomatolog',
+    base: 'Po zakończeniu edukacji na Akademii Medycznej w Poznaniu ciągle pogłębia i doskonali wiedzę, uczestnicząc regularnie w kursach prowadzonych przez polskich i zagranicznych wykładowców.',
+    extra: ' W wolnych chwilach zwiedza świat, co daje jej niezwykłą satysfakcję i motywację do dalszego rozwoju zawodowego.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/bogna.jpg',
+    pos: '34% top',
+  },
+  {
+    name: 'lek. dent. Paweł Urbańczyk',
+    role: 'Lekarz Stomatolog',
+    base: 'Ukończył studia na wydziale Lekarsko-Dentystycznym Uniwersytetu Medycznego we Wrocławiu.',
+    extra: ' Ukończył wiele szkoleń i kursów z dziedziny stomatologii zachowawczej i estetycznej, chirurgii stomatologicznej oraz implantologii. Prywatnie gra na perkusji oraz jest pasjonatem motocykli.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/xxx.jpg',
+    pos: '88% top',
+  },
+];
+
+const team = [
+  {
+    name: 'Aleksandra Sarna',
+    role: 'Higienistka stomatologiczna',
+    base: 'Ukończyła szkołę asystentek i higienistek stomatologicznych. Stale poszerza swoje umiejętności zawodowe.',
+    extra: ' Lubi swoją pracę ze względu na możliwość kontaktu z ludźmi. Wspiera pacjentów w trudnych chwilach. Czynnie asystuje lekarzom podczas zabiegów, jak i samodzielnie wykonuje zabiegi higienizacyjne.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/ola.jpg',
+    pos: '17% top',
+  },
+  {
+    name: 'Monika Kotwicka',
+    role: 'Higienistka stomatologiczna',
+    base: 'Ukończyła szkołę asystentek i higienistek stomatologicznych. W każdej sytuacji służy pomocą i fachową poradą.',
+    extra: ' Dba o drobiazgi w sferze organizacji pracy w gabinecie. Buduje i poszerza swoje kompetencje zawodowe poprzez uczestnictwo w szkoleniach.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/monika.jpg',
+    pos: '22% top',
+  },
+  {
+    name: 'Justyna Grzonka',
+    role: 'Higienistka stomatologiczna',
+    base: 'Ukończyła szkołę asystentek i higienistek stomatologicznych. Czynnie asystuje lekarzom przy zabiegach, jak i samodzielnie wykonuje niektóre zabiegi.',
+    extra: ' Bardzo ceni sobie kontakt z ludźmi. Stale podnosi swoje umiejętności i kwalifikacje.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/justyna_.jpg',
+    pos: '25% top',
+  },
+  {
+    name: 'Anna Korolewicz',
+    role: 'Asystentka stomatologiczna',
+    base: 'Najbardziej doświadczona asystentka w gabinecie. Czynnie asystuje lekarzom.',
+    extra: ' Wykonuje również samodzielnie zabiegi higienizacyjne. Lakowanie pierwszych zębów trzonowych u dzieci zawsze jest zakończone pięknym uśmiechem. Stale poszerza swoją wiedzę.',
+    photo: 'https://gabinetwpasazu.pl/wp-content/uploads/2018/03/ania.jpg',
+    pos: '15% top',
+  },
+];
+
+const all = [...doctors, ...team];
+---
+
+<section id="zespol" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-xl mb-14">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4">Nasz zespół</p>
+      <h2 class="font-display text-4xl lg:text-5xl font-semibold text-ink leading-[1.1]">
+        Poznaj ludzi,<br /><em class="italic font-normal">którzy zadbają o Ciebie</em>
+      </h2>
+    </div>
+
+    <div class="mb-14">
+      <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-ink-muted mb-8">Lekarze stomatolodzy</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {doctors.map((p, i) => (
+          <div class="person-card group flex flex-col gap-4 cursor-default" data-index={i}>
+            <div class="relative overflow-hidden rounded-xl aspect-[3/4]">
+              <img
+                src={p.photo}
+                alt={p.name}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={`object-position: ${p.pos}`}
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-ink leading-snug mb-0.5">{p.name}</p>
+              <p class="text-xs font-medium text-gold mb-3">{p.role}</p>
+              <p class="text-xs text-ink-muted leading-relaxed">{p.base}</p>
+              <div class="bio-expand overflow-hidden">
+                <p class="md:hidden text-xs text-ink-muted leading-relaxed">{p.extra}</p>
+                <span class="bio-typed hidden md:block text-xs text-ink-muted leading-relaxed" data-text={p.extra} aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="pt-12 border-t border-border">
+      <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-ink-muted mb-8">Higienistki i asystentki</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {team.map((p, i) => (
+          <div class="person-card group flex flex-col gap-4 cursor-default" data-index={doctors.length + i}>
+            <div class="relative overflow-hidden rounded-xl aspect-[3/4]">
+              <img
+                src={p.photo}
+                alt={p.name}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={`object-position: ${p.pos}`}
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-ink leading-snug mb-0.5">{p.name}</p>
+              <p class="text-xs font-medium text-gold mb-3">{p.role}</p>
+              <p class="text-xs text-ink-muted leading-relaxed">{p.base}</p>
+              <div class="bio-expand overflow-hidden">
+                <p class="md:hidden text-xs text-ink-muted leading-relaxed">{p.extra}</p>
+                <span class="bio-typed hidden md:block text-xs text-ink-muted leading-relaxed" data-text={p.extra} aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .bio-expand {
+      height: 0;
+      transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  .bio-cursor::after {
+    content: '|';
+    animation: blink 0.7s step-end infinite;
+    color: var(--color-gold);
+    margin-left: 1px;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.person-card').forEach(card => {
+    const expand = card.querySelector<HTMLElement>('.bio-expand');
+    const typed  = card.querySelector<HTMLElement>('.bio-typed');
+    if (!expand || !typed) return;
+
+    // tylko na urządzeniach z hover (desktop)
+    if (!window.matchMedia('(hover: hover)').matches) return;
+
+    const fullText = typed.dataset.text ?? '';
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let idx = 0;
+
+    // zmierz docelową wysokość raz — bez zmiany layoutu
+    typed.textContent = fullText;
+    const targetH = expand.scrollHeight;
+    typed.textContent = '';
+
+    function clearTimer() {
+      if (timer !== null) { clearTimeout(timer); timer = null; }
+    }
+
+    function type() {
+      if (idx >= fullText.length) {
+        typed.classList.remove('bio-cursor');
+        return;
+      }
+      typed.textContent = fullText.slice(0, ++idx);
+      timer = setTimeout(type, 6);
+    }
+
+    card.addEventListener('mouseenter', () => {
+      clearTimer();
+      idx = 0;
+      typed.textContent = '';
+      typed.classList.add('bio-cursor');
+      // jedna płynna animacja wysokości do docelowej pozycji
+      expand.style.height = targetH + 'px';
+      timer = setTimeout(type, 40);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      clearTimer();
+      typed.classList.remove('bio-cursor');
+      typed.textContent = '';
+      idx = 0;
+      expand.style.height = '0px';
+    });
+  });
+</script>
