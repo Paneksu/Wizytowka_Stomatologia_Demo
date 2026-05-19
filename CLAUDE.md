@@ -17,6 +17,14 @@ npm run build  # produkcyjny build do dist/
 npm run preview # podgląd buildu
 ```
 
+## Deployment — Hetzner VPS + Coolify
+- **Serwer:** Hetzner VPS z Coolify (self-hosted)
+- **Metoda:** Docker (multi-stage build → Nginx)
+- **Plik:** `Dockerfile` w katalogu głównym
+- Coolify podpina repozytorium Git i buduje przez `docker build`
+- Output: statyczne pliki w `/usr/share/nginx/html` obsługiwane przez Nginx
+- Brak Vercel adaptera — Astro buduje do czystego `dist/` (domyślne `output: 'static'`)
+
 ## Aktywne skille
 - `/clone-design` — pixel-perfect replication z referencji / zdjęcia
 - `/frontend-skill` — OpenAI landing page playbook
